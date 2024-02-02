@@ -165,34 +165,17 @@ import time
 import _thread
 
 
+sys.path.insert(0, os.getcwd())
+
+
 from objx import Object
 from botl import Broker, Client, Command, Default, Error, Event, Handler, Storage
 from botl import cdir, cmnd, debug, forever, launch, parse_cmd, scan, spl
 
 
-def __dir__():
-    return (
-        'Cfg',
-        'Console',
-        "Client",
-        'cmnd',
-        'daemon',
-        'daemoned',
-        'forever',
-        'main',
-        'privileges',
-        'scan',
-        'wrap',
-        'wrapped'
-    )
-
-
-__all__ = __dir__()
-
-
 Cfg         = Default()
 Cfg.mod     = "cmd,irc,rss,mod"
-Cfg.name    = "botl"
+Cfg.name    = "botz"
 Cfg.wd      = os.path.expanduser(f"~/.{Cfg.name}")
 Cfg.pidfile = os.path.join(Cfg.wd, f"{Cfg.name}.pid")
 Cfg.user    = getpass.getuser()
@@ -256,7 +239,7 @@ def daemon(pidfile, verbose=False):
 def daemoned():
     daemon(Cfg.pidfile)
     privileges(Cfg.user)
-    scan(mods, Cfg.mod, True)
+    scan(botz, Cfg.mod, True)
     forever()
 
 
