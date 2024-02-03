@@ -22,7 +22,7 @@ from botl import Broker, Client, Command, Default, Error, Event
 from botl import debug, last, launch, write
 
 
-NAME = "botl"
+NAME = "botz"
 
 
 Error.filter = ["PING", "PONG", "PRIVMSG"]
